@@ -8,6 +8,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: HashiCorp - Setup Terraform
+        uses: hashicorp/setup-terraform@v2.0.3
+                
       - name: Initialize Backend
         run: |
           echo "Initializing backend..."
