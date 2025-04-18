@@ -1,5 +1,4 @@
-name: GitHub Actions - Create Infrastructure
-run-name: ${{ github.actor }} is testing out GitHub Actions
+name: GitHub Actions - Initialize Backend
 on: [push]
 jobs:
   Explore-GitHub-Actions:
@@ -15,4 +14,13 @@ jobs:
         working-directory: backend
         run: |
           echo "Initializing backend..."
-          terraform init .
+          terraform init
+          terraform plan
+          terraform apply -auto-approve
+          echo "Backend initialized successfully."
+      
+      - name: Print output
+        working-directory: backend
+        run: |
+          echo "Terraform Backend:"
+          terraform output -json | jq -r '.backend.value'
