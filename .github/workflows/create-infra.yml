@@ -1,0 +1,15 @@
+name: GitHub Actions - Create Infrastructure
+run-name: ${{ github.actor }} is testing out GitHub Actions
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Initialize Backend
+        run: |
+          echo "Initializing backend..."
+          cd backend
+          terraform init .
