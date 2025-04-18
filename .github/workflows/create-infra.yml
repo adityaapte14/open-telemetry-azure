@@ -12,7 +12,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2.0.3
                 
       - name: Initialize Backend
+        working-directory: backend
         run: |
           echo "Initializing backend..."
-          cd backend
           terraform init .
