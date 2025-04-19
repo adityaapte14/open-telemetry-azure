@@ -1,5 +1,11 @@
 name: GitHub Actions - Initialize Backend
-on: [push]
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - backend/**
+      - .github/workflows/create-infra.yml
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
